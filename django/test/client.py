@@ -193,6 +193,7 @@ def encode_multipart(boundary, data):
     for (key, value) in data.items():
         if value is None:
             raise TypeError(
+                f'The {key} key has a value of {value}. ' 
                 'Cannot encode None as POST data. Did you mean to pass an '
                 'empty string or omit the value?'
             )
