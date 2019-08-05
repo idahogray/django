@@ -193,9 +193,9 @@ def encode_multipart(boundary, data):
     for (key, value) in data.items():
         if value is None:
             raise TypeError(
-                f'The {key} key has a value of {value}. ' 
+                'The {} key has a value of {}. ' 
                 'Cannot encode None as POST data. Did you mean to pass an '
-                'empty string or omit the value?'
+                'empty string or omit the value?'.format(key, value)
             )
         elif is_file(value):
             lines.extend(encode_file(boundary, key, value))
